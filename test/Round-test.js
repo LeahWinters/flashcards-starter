@@ -44,18 +44,34 @@ describe('Round', function() {
     expect(round.turns).to.equal(1);
   });
 
-  it('should evaluate if the incorrect guess\'s id is in the incorrectGuesses array', function() {
-    round.takeTurn('sea otter');
-    expect(round.incorrectGuesses).to.deep.equal([]);
+  it('should evaluate if the incorrect guess\'s id is pushed into the incorrectGuesses array', function() {
     round.takeTurn('pug');
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
-  it('should return the correct feedback based on guess', function() {
-    const correct = round.takeTurn('sea otter');
+  it('should not push the guess\'s id if the guess is correct', function() {
+    round.takeTurn('sea otter');
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+
+  it('should return feedback if guess is incorrect', function() {
     const incorrect = round.takeTurn('pug');
-    expect(correct).to.equal('correct!');
     expect(incorrect).to.equal('incorrect!');
+  });
+
+  it('should return feedback if guess is correct', function() {
+    const correct = round.takeTurn('sea otter');
+    expect(correct).to.equal('correct!');
+  });
+
+  it('should calculate the percentage of correct guesses made', function() {
+    round.takeTurn('pug');
+    round.takeTurn('sea otter');
+    expect(round.calculatePercentCorrect()).to.equal(50);
+  });
+
+  it('should print out a message once the round has ended', function() {
+    
   })
 
 });

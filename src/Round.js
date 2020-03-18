@@ -24,11 +24,18 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    // calculates and returns the percentage of correct guesses
+    const correctGuesses = this.turns - this.incorrectGuesses.length;
+    const correctGuessesPercent = (correctGuesses / this.turns) * 100;
+    return Math.round(correctGuessesPercent);
   }
 
   endRound() {
-    // prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
+    if (this.turns >= this.deck.allCards.length) {
+      const score = this.calculatePercentCorrect();
+      return `** Round over! ** You answered ${score}% of the questions correctly!`;
+    } else {
+      return 'Round is not over yet!';
+    }
   }
 }
 
