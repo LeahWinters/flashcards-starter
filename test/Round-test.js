@@ -45,7 +45,7 @@ describe('Round', function() {
   });
 
   it('should change to the next card whether the answer is correct or incorrect', function() {
-    round.takeTurn('sea otter');
+    round.takeTurn('gallbladder');
     expect(round.currentCard).to.equal(round.deck.allCards[0]);
   });
 

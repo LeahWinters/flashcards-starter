@@ -15,9 +15,11 @@ class Game {
       return new Card(question.id, question.question, question.answers, question.correctAnswer);
     });
     const deck = new Deck(cards);
-    const round = new Round(deck);
+    const startTime = Date.now();
+    const round = new Round(deck, startTime);
     this.printMessage(deck, round);
     this.printQuestion(round);
+
   }
 
   printMessage(deck, round) {
