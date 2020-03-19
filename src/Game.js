@@ -19,16 +19,15 @@ class Game {
     const round = new Round(deck, startTime);
     this.printMessage(deck, round);
     this.printQuestion(round);
-
   }
 
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`);
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
