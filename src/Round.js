@@ -20,6 +20,12 @@ class Round {
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id);
     }
+    if(this.turns > this.deck.allCards.length) {
+      this.endRound();
+      return
+    }
+    this.deck.allCards.shift();
+    this.returnCurrentCard();
     return turn.giveFeedback();
   }
 
@@ -30,12 +36,8 @@ class Round {
   }
 
   endRound() {
-    if (this.turns >= this.deck.allCards.length) {
       const score = this.calculatePercentCorrect();
       return `** Round over! ** You answered ${score}% of the questions correctly!`;
-    } else {
-      return 'Round is not over yet!';
-    }
   }
 }
 

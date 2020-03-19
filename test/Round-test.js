@@ -44,6 +44,11 @@ describe('Round', function() {
     expect(round.turns).to.equal(1);
   });
 
+  it('should change to the next card whether the answer is correct or incorrect', function() {
+    round.takeTurn('sea otter');
+    expect(round.currentCard).to.equal(round.deck.allCards[0]);
+  });
+
   it('should evaluate if the incorrect guess\'s id is pushed into the incorrectGuesses array', function() {
     round.takeTurn('pug');
     expect(round.incorrectGuesses).to.deep.equal([1]);
@@ -66,12 +71,16 @@ describe('Round', function() {
 
   it('should calculate the percentage of correct guesses made', function() {
     round.takeTurn('pug');
-    round.takeTurn('sea otter');
+    round.takeTurn('gallbladder');
     expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
   it('should print out a message once the round has ended', function() {
-    
+    round.takeTurn('pug');
+    round.takeTurn('spleen');
+    round.takeTurn('Fitzgerald');
+    expect(round.calculatePercentCorrect()).to.equal(33);
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
   })
 
 });
