@@ -1,3 +1,17 @@
+# FlashCards Project
+
+## Mod 2 First Solo Project
+
+### Contributors: [Léah Winters](https://github.com/LeahWinters)
+
+### Time alotted: 4 Days
+
+### Description: 
+
+A flashcard study tool, that helps you learn coding terms and what they do and include! Below is a GIF of the game in action!
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/55927708/77126612-5917b100-6a0f-11ea-82b8-4869c12ea16b.gif)
+
 # FlashCards Starter Kit
 
 ## Fork This Repo
